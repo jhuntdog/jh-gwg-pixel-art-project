@@ -1,0 +1,25 @@
+{
+  "name": "jh-gwg-pixel-art-project",
+  "version": "0.1.0",
+  "description": "udacity grow with google project",
+  "main": "designs.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhuntdog/jh-gwg-pixel-art-project.git"
+  },
+  "author": "Jason Huntington",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jhuntdog/jh-gwg-pixel-art-project/issues"
+  },
+  "homepage": "https://github.com/jhuntdog/jh-gwg-pixel-art-project#readme",
+  "devDependencies": {
+    "browser-sync": "^2.23.6",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0"
+  }
+}
