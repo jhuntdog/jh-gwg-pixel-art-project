@@ -13,6 +13,8 @@
 
 $(document).ready(function(){
 
+  var version = '0.1.2';
+
   // Select color input
   var colorPicked = $('#colorPicker');
 
