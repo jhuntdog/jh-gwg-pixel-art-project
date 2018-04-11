@@ -17,33 +17,57 @@
 </head>
 <body>
 
-<h1>Lab: Pixel Art Maker</h1>
 
-<h2>Choose Grid Size</h2>
+<main class="main" role="main">
+  <div class="container">
+    <div class="content">
 
-<form role="form" id="sizePicker" name="sizePicker" class="form-grid">
-  Grid Height:
-  <input type="number" id="gridHeight" name="gridHeight" min="1" value="10">
-  Grid Width:
-  <input type="number" id="gridWidth" name="gridWidth" min="1" value="10">
-  <button id="gridSubmit" type="submit">Submit</button>
-  <button id="gridDelete" type="reset">Delete Grid</button>
-</form>
+      <h1>Lab: Pixel Art Maker</h1>
 
-<h2>Pick A Color</h2>
-<div>
-  <input type="color" id="colorPicker" value="#3F51B5">
-</div>
+      <h2>Choose Grid Size</h2>
 
-<div>
-  <button role="button" id="resetColors">Clear Colors</button>
-</div>
+      <form role="form" id="sizePicker" name="sizePicker" class="form-grid">
+        Grid Height:
+        <input class="input" type="number" id="gridHeight" name="gridHeight" min="1" value="10">
+        Grid Width:
+        <input class="input" type="number" id="gridWidth" name="gridWidth" min="1" value="10">
+        <button id="gridSubmit" type="submit" class="btn btn-action">Submit</button>
+        <button id="gridDelete" type="reset" class="btn btn-reset">Delete Grid</button>
+      </form>
 
-<h2>Design Canvas</h2>
+      <h2>Pick A Color</h2>
+      <div class="field">
+        <input class="input" type="color" id="colorPicker" value="#3F51B5">
+      </div>
 
-<div id="gridContainer"></div>
+      <div class="field">
+        <button role="button" id="resetColors" class="btn btn-reset">Clear Colors</button>
+      </div>
 
-<hr>
+      <h2>Design Canvas</h2>
+
+      <div id="gridContainer"></div>
+
+    </div>
+  </div>
+</main>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <p>
+        My Pixel Art Maker Project <br>
+        for the <a href="https://www.udacity.com/grow-with-google">Udacity Grow with Google Challenge Scholarship: Front-End Web Dev</a>
+        <br>
+        Thank you for the opportunity! <br>
+        -- <br>
+        Jason
+
+      </p>
+    </div>
+  </div>
+</footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="designs.js"></script>
