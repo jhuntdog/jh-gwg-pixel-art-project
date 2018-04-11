@@ -1,0 +1,31 @@
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+
+
+config.json
+
+# misc notes
+# ---------------------
+notes
+
+
+# general files
+# ------------------
+.DS_Store
+Thumbs.db
+._*
+.cache
+.project
+.settings
+.tmproj
+*.esproj
+nbproject
+.idea
+*.sublime-project
+*.sublime-workspace
+nbproject
+manifest.mf
+build.xml
