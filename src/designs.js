@@ -13,12 +13,6 @@
 
 $(document).ready(function(){
 
-  console.log('jquery doc ready');
-
-  // variables
-
-  var isGridAvailable = false;
-
   // Select color input
   var colorPicked = $('#colorPicker');
 
@@ -29,9 +23,6 @@ $(document).ready(function(){
   };
 
   var gridTable;
-  // var gridSubmit = $('#gridSubmit');
-
-
 
   /**
    * @description add bg color to cell
@@ -62,8 +53,6 @@ $(document).ready(function(){
     var gridRows = formData.gridHeight;
     var gridCols = formData.gridWidth;
 
-    var tr = [];
-
     for (var i = 0; i < gridRows; i++) {
       var row = $('<tr></tr>').attr({class: 'grid-row'}).appendTo(gridTable);
       for (var j = 0; j < gridCols; j++) {
@@ -80,7 +69,7 @@ $(document).ready(function(){
    * @description Clears the grid
    */
   function deleteGrid() {
-    $('#gridTable').remove();
+    $('#gridContainer').children().remove();
     gridTable = undefined;
   }
 
@@ -90,22 +79,20 @@ $(document).ready(function(){
    */
   $('#sizePicker').submit(function( event) {
 
-    // test to make sure jquery can get the submit button
-    //alert( "Handler for .submit() called." );
     event.preventDefault();
+
+    while(gridTable) {
+      deleteGrid();
+    }
 
     formData = {
       'gridHeight': $('#gridHeight').val(),
       'gridWidth': $('#gridWidth').val()
     };
 
-    console.log(formData);
+    // console.log(formData);
 
-    if (gridTable === undefined) {
-      makeGrid();
-    }
-
-
+    makeGrid();
 
   });
 
@@ -118,7 +105,7 @@ $(document).ready(function(){
   });
 
   $('#resetColors').click(function() {
-    console.log('clicked resetColors');
+    // console.log('clicked resetColors');
     $('.grid-cell').removeAttr("style");
   });
 
