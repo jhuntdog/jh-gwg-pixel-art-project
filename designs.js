@@ -133,10 +133,25 @@ $(document).ready(function(){
   });
 
   /**
-   * @description Color cell background on hover
+   * @description Clears an individual cell's color with right-click
+   * TODO: maybe don't show context menu?
+   */
+  gridContainer.on('contextmenu', '.grid-cell', function() {
+    clearCell(this);
+  });
+
+  /**
+   * @description Color cell background on hover+click
+   * TODO: figure out how to get the right click hover to clear
    */
   gridContainer.on('mouseover', '.grid-cell', function(e) {
-    if (e.buttons === 1) {
+    // this clears color when hovering with both buttons clicked
+    if (e.buttons === 3) {
+      clearCell(this);
+    }
+
+    // color cell while hovering with left mouse button clicked
+    else if (e.buttons === 1) {
       colorCell(this);
     }
   });
