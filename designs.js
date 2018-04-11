@@ -13,7 +13,7 @@
 
 $(document).ready(function(){
 
-  const version = '0.1.2';
+  const version = '0.1.3';
 
   const gridContainer = $('#gridContainer');
   const gridTable = '';
