@@ -39,6 +39,7 @@ $(document).ready(function(){
    * @description clears a cell color
    * @param cell
    */
+  // TODO: add method to clear color of individual cell, like an eraser
   function clearCell(cell) {
     $(cell).css('background-color', "");
   }
