@@ -1,66 +1,76 @@
-// Select color input
-// Select size input
-
-// When size is submitted by the user, call makeGrid()
-//
-// function makeGrid() {
-//
-// // Your code goes here!
-//
-// }
-
+/**
+ * Instructions from source materials
+ *
+ * Select color input
+ * Select size input
+ * When size is submitted by the user, call makeGrid()
+ * function makeGrid() {
+ * // Your code goes here!
+ * }
+ *
+ */
 
 
 $(document).ready(function(){
 
-  // Select color input
-  var colorPicked = $('#colorPicker');
+  const version = '0.1.2';
 
-  // size input selection
-  var formData = {
+  const gridContainer = $('#gridContainer');
+  const gridTable = '';
+
+  // Select color input
+  const colorPicked = $('#colorPicker');
+
+  // Select size input
+  // TODO: default form values here instead of in html file
+  let formData = {
     gridHeight: 10,
     gridWidth: 10
   };
 
-  var gridTable;
 
   /**
    * @description add bg color to cell
    * @param cell
    */
   function colorCell(cell) {
-    var color = colorPicked.val();
+    let color = colorPicked.val();
     $(cell).css('background-color', color);
   }
 
   /**
-   * @description clears a cell color
+   * @description removes bg color of individual cell
    * @param cell
    */
+  // TODO: add method to clear color of individual cell, like an eraser
   function clearCell(cell) {
     $(cell).css('background-color', "");
   }
 
   /**
-   *
-   * @description makes a grid based on height & width inputs
+   * @description creates a table grid based on the width and height submitted
+   * @param gridWidth - width of the grid, number of columns
+   * @param gridHeight - height of grid, number of rows
    */
-  function makeGrid() {
+  function makeGrid(gridWidth, gridHeight) {
 
     //console.log('makeGrid function called');
 
-    gridTable = $('<table></table>').attr({ id: 'gridTable'});
-    var gridRows = formData.gridHeight;
-    var gridCols = formData.gridWidth;
+    let gridTable = $('<table></table>').attr({ id: 'gridTable'});
+    // let gridRows = formData.gridHeight;
+    // let gridCols = formData.gridWidth;
 
-    for (var i = 0; i < gridRows; i++) {
-      var row = $('<tr></tr>').attr({class: 'grid-row'}).appendTo(gridTable);
-      for (var j = 0; j < gridCols; j++) {
+    let gridRows = gridHeight;
+    let gridCols = gridWidth;
+
+    for (let i = 0; i < gridRows; i++) {
+      let row = $('<tr></tr>').attr({class: 'grid-row'}).appendTo(gridTable);
+      for (let j = 0; j < gridCols; j++) {
         $('<td class="grid-cell"></td>').appendTo(row);
       }
     }
 
-    gridTable.appendTo('#gridContainer');
+    gridTable.appendTo(gridContainer);
 
   }
 
@@ -69,30 +79,32 @@ $(document).ready(function(){
    * @description Clears the grid
    */
   function deleteGrid() {
-    $('#gridContainer').children().remove();
-    gridTable = undefined;
+    gridContainer.children().remove();
+    //let gridTable = 'blank';
   }
 
   /**
-   *
-   * @description form submission
+   * @description form submission handler clears and creates the table grid
    */
   $('#sizePicker').submit(function( event) {
 
     event.preventDefault();
 
-    while(gridTable) {
+    // prevent duplicate grids being created
+    // example of while loop
+    while (gridContainer.children().length > 0) {
       deleteGrid();
     }
 
-    formData = {
+    // get form input of grid height and width
+    let formData = {
       'gridHeight': $('#gridHeight').val(),
       'gridWidth': $('#gridWidth').val()
     };
+    //console.log(formData);
 
-    // console.log(formData);
-
-    makeGrid();
+    // pass width and height to makeGrid function
+    makeGrid(formData.gridWidth, formData.gridHeight);
 
   });
 
@@ -104,25 +116,26 @@ $(document).ready(function(){
     deleteGrid();
   });
 
+  /**
+   * @description Resets the grid cell colors
+   */
   $('#resetColors').click(function() {
     // console.log('clicked resetColors');
     $('.grid-cell').removeAttr("style");
   });
 
   /**
-   * Color Cell on Click
    * @description Color cell background on click
    */
-  $('#gridContainer').on('mousedown', '.grid-cell', function() {
+  gridContainer.on('mousedown', '.grid-cell', function() {
     // console.log('clicked grid-cell');
     colorCell(this);
   });
 
   /**
-   * Color Cell on Hover
-   * @description Color cell background on click
+   * @description Color cell background on hover
    */
-  $('#gridContainer').on('mouseover', '.grid-cell', function(e) {
+  gridContainer.on('mouseover', '.grid-cell', function(e) {
     if (e.buttons === 1) {
       colorCell(this);
     }
