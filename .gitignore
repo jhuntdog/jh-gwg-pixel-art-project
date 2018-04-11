@@ -2,10 +2,8 @@ node_modules
 dist
 .tmp
 .sass-cache
-bower_components
 
 
-config.json
 
 # misc notes
 # ---------------------
